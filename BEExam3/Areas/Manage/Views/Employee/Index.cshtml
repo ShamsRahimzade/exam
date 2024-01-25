@@ -1,0 +1,77 @@
+﻿@model List<Employee>
+@{
+    int count = 0;
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Striped Table</h4>
+            <a asp-action="create" asp-controller="employee" >
+                <button type="button" class="btn btn-outline-dark btn-fw">
+                   <div style="padding:revert-layer" class="col-sm-6 col-md-4 col-lg-3">
+                       
+                        <i class="mdi mdi-account-plus"></i>
+                    </div>
+                </button>
+            </a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                FullName
+                            </th>
+                            <th>
+                                Position
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>
+                                    @count;
+                                </td>
+                                <td class="py-1">
+                                    <img style="width:150px;height:150px;" src="~/assets/img/@item.Image" alt="image">
+                                </td>
+                                <td>
+                                    @item.FullName
+                                </td>
+                                <td>
+                                    @item.Position.Name
+                                </td>
+                                <td>
+                                    <a asp-action="update" asp-controller="employee" asp-route-id="@item.Id">
+                                        <button type="button" class="btn btn-outline-dark btn-fw">
+                                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                                <i class="mdi mdi-open-in-new"></i>
+                                            </div>
+                                        </button>
+                                    </a>
+                                         <a asp-action="delete" asp-controller="employee" asp-route-id="@item.Id">
+                                      <button type="button" class="btn btn-outline-dark btn-fw">
+                                            <i class="mdi mdi-close"> </i>
+                                            </button>
+                                        </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

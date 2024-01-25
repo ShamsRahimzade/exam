@@ -1,0 +1,54 @@
+﻿@using BEExam3.Areas.Manage.ViewModels.Employee;
+@model CreateEmployeeVM
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Default form</h4>
+            <p class="card-description">
+                Basic form layout
+            </p>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Name" for="exampleInputUsername1">Name</label>
+                    <input asp-for="Name" class="form-control" id="exampleInputUsername1" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Twitter" for="exampleInputUsername1">Twitter</label>
+                    <input asp-for="Twitter" class="form-control" id="exampleInputUsername1" placeholder="Twitter">
+                    <span class="text-danger" asp-validation-for="Twitter"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Instagram" for="exampleInputUsername1">Instagram</label>
+                    <input asp-for="Instagram" class="form-control" id="exampleInputUsername1" placeholder="Instagram">
+                    <span class="text-danger" asp-validation-for="Instagram"></span>
+                </div>
+               <div class="form-group">
+                    <label asp-for="Linkedin" for="exampleInputUsername1">Linkedin</label>
+                    <input asp-for="Linkedin" class="form-control" id="exampleInputUsername1" placeholder="Linkedin">
+                    <span class="text-danger" asp-validation-for="Linkedin"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="Facebook" for="exampleInputUsername1">Facebook</label>
+                    <input asp-for="Facebook" class="form-control" id="exampleInputUsername1" placeholder="Facebook">
+                    <span class="text-danger" asp-validation-for="Facebook"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="Photo" for="exampleInputUsername1">Photo</label>
+                    <input asp-for="Photo" class="form-control" id="exampleInputUsername1" placeholder="Photo">
+                    <span class="text-danger" asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PositionId" for="exampleInputUsername1">PositionId</label>
+                    <select asp-for="PositionId" asp-items="new SelectList(Model.Positions,nameof(Position.Id),nameof(Position.Name))">
+                        <option disabled selected >Choose Position</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="PositionId"></span>
+                </div>
+               
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
